@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import React from 'react';
+import ReactPlayer from 'react-player';
 
 import { supabase } from '../lib/initSupabase';
 
@@ -15,7 +17,7 @@ import { supabase } from '../lib/initSupabase';
 // }
 
 // const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
-// const YOUTUBE_API_KEY = 'AIzaSyANi3rDROII6mQHbTvPq4jMQ77adAVX1kA';
+const YOUTUBE_API_KEY = 'AIzaSyANi3rDROII6mQHbTvPq4jMQ77adAVX1kA';
 const searchTerm = 'html';
 const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
 
@@ -53,13 +55,14 @@ export default function Home({ videoList }) {
 
         <div className="video-list">
           {listArr.map((video) => (
-            <div className="video-card">
+            <div className="video-card" key={`${video.id.videoId}`}>
               <p>{video.snippet.title}</p>
               <h3>{video.snippet.channelTitle}</h3>
               <p>{video.snippet.description}</p>
-              <iframe
-                src={`https://www.youtube.com/embed/${video.id.videoId}`}
-              ></iframe>
+              <ReactPlayer
+                controls="true"
+                url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+              />
             </div>
           ))}
         </div>
