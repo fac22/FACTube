@@ -18,9 +18,6 @@ function Search() {
           aria-label="Search videos"
           placeholder="Search videos"
           name="search"
-          //   onSubmit={(e) => {
-          //     setSearchTerm(e.target.search.value);
-          //   }}
         />
 
         <button type="submit">Search</button>
