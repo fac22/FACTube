@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import Search from '../components/Search.js';
 
 import { supabase } from '../lib/initSupabase';
 
@@ -14,33 +14,21 @@ import { supabase } from '../lib/initSupabase';
 //   };
 // }
 
-// const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
-const YOUTUBE_API_KEY = 'AIzaSyANi3rDROII6mQHbTvPq4jMQ77adAVX1kA';
-const searchTerm = 'html';
-const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
-
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(`https://www.youtube.com/embed/${data.items[0].id.videoId}`);
-//   });
-export async function getServerSideProps({ req, res }) {
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log(data);
-      // const { data, error } = await
-      return {
-        props: {
-          videoList: data,
-        },
-      };
-    });
-}
+// export async function getServerSideProps({ req, res }) {
+//   return fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       return {
+//         props: {
+//           videoList: data,
+//         },
+//       };
+//     });
+// }
 
 export default function Home({ videoList }) {
-  console.log(videoList);
-  const listArr = videoList.items;
+  //console.log(videoList);
+  //const listArr = videoList.items;
   return (
     <div className={styles.container}>
       <Head>
@@ -67,19 +55,7 @@ export default function Home({ videoList }) {
       </Head>
       <main>
         <h1>here are some videos</h1>
-
-        <div className="video-list">
-          {listArr.map((video) => (
-            <div className="video-card" key={video.id.videoId}>
-              <p>{video.snippet.title}</p>
-              <h3>{video.snippet.channelTitle}</h3>
-              <p>{video.snippet.description}</p>
-              <iframe
-                src={`https://www.youtube.com/embed/${video.id.videoId}`}
-              ></iframe>
-            </div>
-          ))}
-        </div>
+        <Search />
       </main>
     </div>
   );
