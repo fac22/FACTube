@@ -27,7 +27,7 @@ import { supabase } from '../lib/initSupabase';
 //     });
 // }
 
-export default function Home({ videoList }) {
+export default function Home() {
   return (
     <div>
       <Head>
