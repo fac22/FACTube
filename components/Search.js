@@ -2,7 +2,7 @@ import React from 'react';
 import Videos from '../components/Videos';
 
 function Search() {
-  const [searchTerm, setSearchTerm] = React.useState();
+  const [searchTerm, setSearchTerm] = React.useState('');
 
   return (
     <article>
