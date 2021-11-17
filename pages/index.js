@@ -14,22 +14,15 @@ import { supabase } from '../lib/initSupabase';
 //   };
 // }
 
-// const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
-const YOUTUBE_API_KEY = 'AIzaSyANi3rDROII6mQHbTvPq4jMQ77adAVX1kA';
+// const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 const searchTerm = 'html';
 const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
 
-// fetch(url)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     console.log(`https://www.youtube.com/embed/${data.items[0].id.videoId}`);
-//   });
 export async function getServerSideProps({ req, res }) {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => {
       // console.log(data);
-      // const { data, error } = await
       return {
         props: {
           videoList: data,
@@ -66,19 +59,24 @@ export default function Home({ videoList }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <main>
-        <h1>here are some videos</h1>
+        <h2>Here are some videos</h2>
 
         <div className="video-list">
-          {listArr.map((video) => (
-            <div className="video-card" key={video.id.videoId}>
-              <p>{video.snippet.title}</p>
-              <h3>{video.snippet.channelTitle}</h3>
-              <p>{video.snippet.description}</p>
-              <iframe
-                src={`https://www.youtube.com/embed/${video.id.videoId}`}
-              ></iframe>
-            </div>
-          ))}
+          {listArr.map((video) => {
+            if (video.id.videoId !== undefined) {
+              return (
+                <div className="video-card" key={video.id.videoId}>
+                  <h3>{video.snippet.title}</h3>
+                  <h4>{video.snippet.channelTitle}</h4>
+                  <p>{video.snippet.description}</p>
+                  <ReactPlayer
+                    controls={true}
+                    url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                  />
+                </div>
+              );
+            }
+          })}
         </div>
       </main>
     </div>
