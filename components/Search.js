@@ -12,14 +12,20 @@ function Search() {
           setSearchTerm(event.target.search.value);
         }}
       >
-        <label htmlFor="search">Search </label>
+        <label htmlFor="search"></label>
         <input
           type="search"
           aria-label="Search videos"
           placeholder="Search videos"
           name="search"
+          //   onSubmit={(e) => {
+          //     setSearchTerm(e.target.search.value);
+          //   }}
         />
+
+        <button type="submit">Search</button>
       </form>
+
       <Videos searchTerm={searchTerm} />
     </article>
   );
