@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import Search from '../components/Search.js';
 
 import { supabase } from '../lib/initSupabase';
 
@@ -14,26 +14,21 @@ import { supabase } from '../lib/initSupabase';
 //   };
 // }
 
-// const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
-const searchTerm = 'html';
-const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
-
-export async function getServerSideProps({ req, res }) {
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log(data);
-      return {
-        props: {
-          videoList: data,
-        },
-      };
-    });
-}
+// export async function getServerSideProps({ req, res }) {
+//   return fetch(url)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       return {
+//         props: {
+//           videoList: data,
+//         },
+//       };
+//     });
+// }
 
 export default function Home({ videoList }) {
-  console.log(videoList);
-  const listArr = videoList.items;
+  //console.log(videoList);
+  //const listArr = videoList.items;
   return (
     <div className={styles.container}>
       <Head>
@@ -59,25 +54,8 @@ export default function Home({ videoList }) {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <main>
-        <h2>Here are some videos</h2>
-
-        <div className="video-list">
-          {listArr.map((video) => {
-            if (video.id.videoId !== undefined) {
-              return (
-                <div className="video-card" key={video.id.videoId}>
-                  <h3>{video.snippet.title}</h3>
-                  <h4>{video.snippet.channelTitle}</h4>
-                  <p>{video.snippet.description}</p>
-                  <ReactPlayer
-                    controls={true}
-                    url={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                  />
-                </div>
-              );
-            }
-          })}
-        </div>
+        <h1>here are some videos</h1>
+        <Search />
       </main>
     </div>
   );
