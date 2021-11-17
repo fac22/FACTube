@@ -1,5 +1,5 @@
 import React from 'react';
-const YOUTUBE_API_KEY = 'AIzaSyANi3rDROII6mQHbTvPq4jMQ77adAVX1kA';
+const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 function Videos({ searchTerm }) {
   console.log('search term', searchTerm);
