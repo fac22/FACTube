@@ -12,7 +12,7 @@ function Search() {
           setSearchTerm(event.target.search.value);
         }}
       >
-        <label htmlFor="Search">Search </label>
+        <label htmlFor="search">Search </label>
         <input
           type="search"
           aria-label="Search videos"
