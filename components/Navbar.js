@@ -18,9 +18,9 @@ function Navbar() {
     <ThemeProvider theme={theme}>
       <AppBar position="static" backgroundColor="primary">
         <Toolbar>
-          <IconButton>
+          {/* <IconButton>
             <MenuIcon></MenuIcon>
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h1" color="secondary">
             FAC-tube
           </Typography>

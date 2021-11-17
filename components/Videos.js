@@ -1,27 +1,24 @@
 import React from 'react';
-let YOUTUBE_API_KEY;
 
 function Videos({ searchTerm }) {
-
   let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
-
-  const [videoList, setVideoList] = React.useState([]);
-  // const [searchValue, setSearchValue] = React.useState();
+  const [searchValue, setSearchValue] = React.useState();
+  const [videoList, setVideoList] = React.useState([
+    //video objects go in here
+  ]);
 
   React.useEffect(() => {
-    if (searchTerm) {
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          setVideoList(data);
-          return videoList;
-        });
-    }
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setSearchValue(data);
+        return searchValue;
+      });
   }, [searchTerm]);
 
-
-  console.log('videoList', videoList);
-  let listArr = videoList.items;
+  React.useEffect(() => {
+    setVideoList(searchValue);
+  }, [searchValue]);
 
   const warning = <p>Please insert a term to search!</p>;
 
