@@ -1,7 +1,8 @@
 import React from 'react';
-const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+let YOUTUBE_API_KEY;
 
 function Videos({ searchTerm }) {
+
   let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${searchTerm}&key=${YOUTUBE_API_KEY}`;
 
   const [videoList, setVideoList] = React.useState([]);
@@ -17,6 +18,7 @@ function Videos({ searchTerm }) {
         });
     }
   }, [searchTerm]);
+
 
   console.log('videoList', videoList);
   let listArr = videoList.items;
