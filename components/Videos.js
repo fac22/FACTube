@@ -10,6 +10,7 @@ export default function Videos({ data }) {
           <h3>{video.snippet.channelTitle}</h3>
           <p>{video.snippet.description}</p>
           <ReactPlayer
+            controls="true"
             url={`https://www.youtube.com/embed/${video.id.videoId}`}
           />
         </div>

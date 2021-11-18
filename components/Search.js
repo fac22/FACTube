@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from '../components/Videos';
+import Videos from './Videos';
 import SortByDate from './SortByDate';
 
 function Search() {
