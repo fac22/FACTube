@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactPlayer from 'react-player/youtube';
 
 function Videos({ data }) {
   const listArr = data.items;
@@ -11,9 +12,9 @@ function Videos({ data }) {
             <p>{video.snippet.title}</p>
             <h3>{video.snippet.channelTitle}</h3>
             <p>{video.snippet.description}</p>
-            <iframe
-              src={`https://www.youtube.com/embed/${video.id.videoId}`}
-            ></iframe>
+            <ReactPlayer
+              url={`https://www.youtube.com/embed/${video.id.videoId}`}
+            />
           </div>
         ))}
       </div>
