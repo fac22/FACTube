@@ -32,12 +32,13 @@ function Search() {
           aria-label="Search videos"
           placeholder="Search videos"
           name="search"
+          id="search"
           value={searchTerm}
           onChange={(e) => {
             setWarning(false);
             setSearchTerm(e.target.value);
           }}
-      />
+        />
 
         <button type="submit">Search</button>
       </form>
