@@ -1,9 +1,12 @@
 import Head from 'next/head';
-
-import Search from '../components/Search.js';
 import Layout from '../components/Layout.js';
 
+import Search from '../components/Search.js';
+import Videos from '../components/Videos.js';
+import { Catalogue } from '../components/Catalogue.js';
+
 import { supabase } from '../lib/initSupabase';
+import { ourVideos } from '../lib/database';
 
 // export async function getServerSideProps({ req, res }) {
 //   const { data, error } = await supabase.from('Videos').select('*');
@@ -15,19 +18,25 @@ import { supabase } from '../lib/initSupabase';
 //   };
 // }
 
-// export async function getServerSideProps({ req, res }) {
-//   return fetch(url)
-//     .then((response) => response.json())
-//     .then((data) => {
-//       return {
-//         props: {
-//           videoList: data,
-//         },
-//       };
-//     });
-// }
+export async function getServerSideProps({ req, res }) {
+  const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
+  const details = `snippet%2CcontentDetails%2Cstatistics`;
+  const ourVideoIds = ourVideos.map((video) => `&id=${video.yt_id}`).join('');
 
-export default function Home() {
+  let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet${ourVideoIds}&key=${apiKey}`;
+
+  return fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      return {
+        props: {
+          catalogue: data,
+        },
+      };
+    });
+}
+
+export default function Home({ catalogue }) {
   return (
     <div>
       <Head>
@@ -61,6 +70,7 @@ export default function Home() {
       <Layout>
         <main>
           <Search />
+          <Videos data={catalogue} />
         </main>
       </Layout>
     </div>
