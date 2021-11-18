@@ -1,11 +1,9 @@
 import Head from 'next/head';
 import Layout from '../components/Layout.js';
-
 import Search from '../components/Search.js';
 import Videos from '../components/Videos.js';
-import { Catalogue } from '../components/Catalogue.js';
 
-import { supabase } from '../lib/initSupabase';
+//import { supabase } from '../lib/initSupabase';
 import { ourVideos } from '../lib/database';
 
 // export async function getServerSideProps({ req, res }) {
@@ -68,10 +66,8 @@ export default function Home({ catalogue }) {
         />
       </Head>
       <Layout>
-        <main>
-          <Search />
-          <Videos data={catalogue} />
-        </main>
+        <Search />
+        <Videos data={catalogue} />
       </Layout>
     </div>
   );
