@@ -6,6 +6,9 @@ const theme = createMuiTheme({
       main: '#1060E2',
     },
     secondary: {
+      main: '#ff0000',
+    },
+    fontLight: {
       main: '#ffffff',
     },
   },
