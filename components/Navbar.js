@@ -63,7 +63,7 @@ function Navbar() {
     <ThemeProvider theme={theme}>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" backgroundcolor="primary">
-          <Toolbar justify-content="space-between">
+          <Toolbar justifycontent="space-between">
             <IconButton aria-label="menu" color="inherit" sx={{ mr: 2 }}>
               <MenuIcon />
             </IconButton>
