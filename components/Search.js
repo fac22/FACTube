@@ -37,7 +37,7 @@ function Search() {
             setWarning(false);
             setSearchTerm(e.target.value);
           }}
-        />
+      />
 
         <button type="submit">Search</button>
       </form>
