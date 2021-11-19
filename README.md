@@ -110,7 +110,7 @@ FAC-Tube is a website where members of the fac community (applicants, current co
 
 ### Wireframing & Prototype
 - Miro & Figma
-![](https://i.imgur.com/1ezazDK.png =200x)
+![](https://i.imgur.com/1ezazDK.png)
 
 
 
@@ -156,10 +156,10 @@ FAC-Tube is a website where members of the fac community (applicants, current co
     - Big database: Keep it simple for now
 - :arrow_right: Simplest MVP :arrow_right: Feed of good videos
 
-![](https://i.imgur.com/Z3x66k6.png =500x)
+![](https://i.imgur.com/Z3x66k6.png)
 
 ### Plan for Build Sprints
-![](https://i.imgur.com/PGvYhUJ.png =500x)
+![](https://i.imgur.com/PGvYhUJ.png)
 ### Kanban Board
 ![](https://i.imgur.com/CPvJibO.png)
 
@@ -228,7 +228,7 @@ Apply structured techniques to problem solving to identify and resolve issues an
 - YouTube API 
     - Key: request limits, different request costs
     - Need to hide API key
-        ```javascript=
+        ```javascript
         //.env.local
         NEXT_PUBLIC_YOUTUBE_API_KEY=...
 
@@ -241,7 +241,7 @@ Apply structured techniques to problem solving to identify and resolve issues an
     - SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
 
     SWC is 20x faster than Babel on a single thread and 70x faster on four cores.
-    ![](https://i.imgur.com/HncyXWC.png =600x)
+    ![](https://i.imgur.com/HncyXWC.png)
 
 Terminal: Disabled SWC as replacement for Babel because of custom Babel configuration .babelrc 
 
@@ -251,7 +251,7 @@ Terminal: Disabled SWC as replacement for Babel because of custom Babel configur
 - [x] Deployment on Vercel
 - [x] How to query the YouTube API with user generated search term (added to state) and output the data onto the page 📺
 - [x] How to find and install relevant components from NPM e.g. ReactPlayer 🧩
-    ```jsx=
+    ```javascript
     import ReactPlayer from 'react-player/youtube';
 
     <ReactPlayer
@@ -260,7 +260,7 @@ Terminal: Disabled SWC as replacement for Babel because of custom Babel configur
         />
     ```
 - [x] How to use Lodash library function to sort videos by publish date 📆
-    ```jsx=
+    ```javascript
     import { orderBy } from 'lodash';
 
     e.target.value === 'newest' ? (order = 'desc') : (order = 'asc');
