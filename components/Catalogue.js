@@ -2,7 +2,7 @@ import React from 'react';
 // import Videos from './Videos';
 import { ourVideos } from '../lib/database';
 
-function Catalogue() {
+const Catalogue = () => {
   // const [catalogue, setCatalogue] = React.useState();
 
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
@@ -33,6 +33,6 @@ function Catalogue() {
       ))} */}
     </>
   );
-}
+};
 
-export { Catalogue };
+export default Catalogue;

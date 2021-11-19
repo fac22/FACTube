@@ -1,7 +1,6 @@
-import React from 'react';
 import ReactPlayer from 'react-player/youtube';
 
-export default function Videos({ data }) {
+const Videos = ({ data }) => {
   return (
     <div className="video-list">
       {data.map((video) => (
@@ -17,4 +16,6 @@ export default function Videos({ data }) {
       ))}
     </div>
   );
-}
+};
+
+export default Videos;

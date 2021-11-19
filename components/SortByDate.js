@@ -1,7 +1,7 @@
 import React from 'react';
 import { orderBy } from 'lodash';
 
-export default function SortByDate({ videos, setVideos }) {
+const SortByDate = ({ videos, setVideos }) => {
   const sortData = (e) => {
     const copyVideoData = [...videos];
     let order;
@@ -42,4 +42,6 @@ export default function SortByDate({ videos, setVideos }) {
       />
     </fieldset>
   );
-}
+};
+
+export default SortByDate;

@@ -1,11 +1,11 @@
-import React from 'react';
+import { useState } from 'react';
 import Videos from './Videos';
 import SortByDate from './SortByDate';
 
-function Search() {
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const [videos, setVideos] = React.useState(null);
-  const [warning, setWarning] = React.useState(false);
+const Search = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [videos, setVideos] = useState(null);
+  const [warning, setWarning] = useState(false);
   const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
   const handleSubmit = (event) => {
@@ -47,6 +47,6 @@ function Search() {
       {videos && <Videos data={videos} />}
     </>
   );
-}
+};
 
 export default Search;

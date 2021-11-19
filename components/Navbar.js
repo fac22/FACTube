@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-export default function Navbar() {
+const Navbar = () => {
   return (
     <AppBar
       position="sticky"
@@ -37,4 +37,6 @@ export default function Navbar() {
       </Toolbar>
     </AppBar>
   );
-}
+};
+
+export default Navbar;
