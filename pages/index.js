@@ -67,7 +67,7 @@ export default function Home({ catalogue }) {
       </Head>
       <Layout>
         <Search />
-        <Videos data={catalogue} />
+        {/* <Videos data={catalogue} /> */}
       </Layout>
     </div>
   );

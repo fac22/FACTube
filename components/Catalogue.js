@@ -1,5 +1,5 @@
 import React from 'react';
-import Videos from './Videos';
+// import Videos from './Videos';
 import { ourVideos } from '../lib/database';
 
 function Catalogue() {
