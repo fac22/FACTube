@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-import Appbar from '@mui/material/Appbar';
+import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
@@ -8,7 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Navbar() {
   return (
-    <Appbar
+    <AppBar
       position="sticky"
       sx={{
         flexGrow: 1,
@@ -35,6 +35,6 @@ export default function Navbar() {
         </Typography>
         <Avatar />
       </Toolbar>
-    </Appbar>
+    </AppBar>
   );
 }
