@@ -43,7 +43,11 @@ const Search = () => {
   //     {warning && <p>Please insert a term</p>}
   //     {videos && <Videos data={videos} />}
   //</>
-  return <Videos data={Videos} />;
+  return (
+    <>
+      <Videos data={Videos} />
+    </>
+  );
 };
 
 export default Search;
