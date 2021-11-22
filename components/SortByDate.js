@@ -1,4 +1,8 @@
 import React from 'react';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
 import { orderBy } from 'lodash';
 
 const SortByDate = ({ videos, setVideos }) => {
@@ -17,30 +21,31 @@ const SortByDate = ({ videos, setVideos }) => {
   };
 
   return (
-    <fieldset>
-      <legend>Order by publish date</legend>
-      <label htmlFor="newest" key="newest">
-        Newest
-      </label>
-      <input
-        type="radio"
-        name="date"
-        id="newest"
-        value="newest"
-        onChange={sortData}
-      />
+    <div>
+      <FormControl component="fieldset">
+        <FormLabel component="legend">Sort by publish date</FormLabel>
 
-      <label htmlFor="oldest" key="oldest">
-        Oldest
-      </label>
-      <input
-        type="radio"
-        name="date"
-        id="oldest"
-        value="oldest"
-        onChange={sortData}
-      />
-    </fieldset>
+        <RadioGroup
+          row
+          aria-label="sort by publish date"
+          name="row-radio-buttons-group"
+        >
+          <Radio
+            onChange={sortData}
+            value="newest"
+            name="radio-buttons"
+            inputProps={{ 'aria-label': 'Newest' }}
+          />
+
+          <Radio
+            onChange={sortData}
+            value="oldest"
+            name="radio-buttons"
+            inputProps={{ 'aria-label': 'Oldest' }}
+          />
+        </RadioGroup>
+      </FormControl>
+    </div>
   );
 };
 
