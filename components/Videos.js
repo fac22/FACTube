@@ -5,7 +5,6 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { shadows } from '@mui/system';
 
 const Videos = () => {
   return (
@@ -14,8 +13,7 @@ const Videos = () => {
         <Card
           variant="outlined"
           sx={{
-            maxWidth: 'fit-content',
-            padding: 2,
+            padding: 3,
             mb: 2,
             boxShadow: 2,
           }}
@@ -25,6 +23,7 @@ const Videos = () => {
             <ReactPlayer
               controls={true}
               url={`https://www.youtube.com/embed/${video.id.videoId}`}
+              width="100%"
             />
           </CardMedia>
           <CardContent>

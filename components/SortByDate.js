@@ -31,6 +31,7 @@ const SortByDate = ({ videos, setVideos }) => {
           name="row-radio-buttons-group"
         >
           <FormLabel>
+            Newest
             <Radio
               onChange={sortData}
               value="newest"
