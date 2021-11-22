@@ -30,19 +30,24 @@ const SortByDate = ({ videos, setVideos }) => {
           aria-label="sort by publish date"
           name="row-radio-buttons-group"
         >
-          <Radio
-            onChange={sortData}
-            value="newest"
-            name="radio-buttons"
-            inputProps={{ 'aria-label': 'Newest' }}
-          />
-
-          <Radio
-            onChange={sortData}
-            value="oldest"
-            name="radio-buttons"
-            inputProps={{ 'aria-label': 'Oldest' }}
-          />
+          <FormLabel>
+            <Radio
+              onChange={sortData}
+              value="newest"
+              label="newest"
+              name="radio-buttons"
+              inputProps={{ 'aria-label': 'Newest' }}
+            />
+          </FormLabel>
+          <FormLabel>
+            Oldest
+            <Radio
+              onChange={sortData}
+              value="oldest"
+              name="radio-buttons"
+              inputProps={{ 'aria-label': 'Oldest' }}
+            />
+          </FormLabel>
         </RadioGroup>
       </FormControl>
     </div>
