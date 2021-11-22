@@ -1,6 +1,6 @@
 import Account from '../components/Account';
 import Auth from '../components/Auth';
-import { SessionHandler } from './index.js';
+import SessionHandler from '../components/SessionHandler';
 
 const Login = () => {
   const session = SessionHandler();

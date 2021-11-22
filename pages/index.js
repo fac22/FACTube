@@ -2,24 +2,7 @@ import Head from 'next/head';
 import Layout from '../components/Layout.js';
 import Search from '../components/Search.js';
 // import Videos from '../components/Videos.js';
-import { useState, useEffect } from 'react';
-
-import { supabase } from '../lib/initSupabase';
 import { ourVideos } from '../lib/database';
-
-const SessionHandler = () => {
-  const [session, setSession] = useState(null);
-
-  useEffect(() => {
-    setSession(supabase.auth.session());
-
-    supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-    });
-  }, []);
-
-  return session;
-};
 
 const Home = ({ catalogue }) => {
   return (
@@ -88,4 +71,4 @@ export async function getServerSideProps({ req, res }) {
     });
 }
 
-export { SessionHandler, Home };
+export default Home;
