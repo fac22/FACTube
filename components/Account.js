@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/initSupabase';
+import SessionHandler from './SessionHandler';
 
-const Account = ({ session }) => {
+const Account = () => {
+  const session = SessionHandler();
   const [loading, setLoading] = useState(true);
   const [username, setUsername] = useState(null);
   const [website, setWebsite] = useState(null);
