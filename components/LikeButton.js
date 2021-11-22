@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteOutLined from '@material-ui/icons/FavoriteOutLined';
+import FavoriteOutlined from '@material-ui/icons/FavoriteOutlined';
 import IconButton from '@mui/material/IconButton';
 
 const LikeButton = () => {
@@ -18,7 +18,7 @@ const LikeButton = () => {
       onClick={() => setLike(false)}
       sx={{ color: '#f44336' }}
     >
-      <FavoriteOutLined fontSize="large" />
+      <FavoriteOutlined fontSize="large" />
     </IconButton>
   );
 };
