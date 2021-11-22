@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import Videos from './Videos';
 import SortByDate from './SortByDate';
 import TextField from '@mui/material/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import SearchIcon from '@material-ui/icons/Search';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,21 +27,29 @@ const Search = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <TextField
-          onChange={(e) => {
-            setWarning(false);
-            setSearchTerm(e.target.value);
-          }}
-          label="search"
-          variant="outlined"
-        />
-        {videos && <SortByDate videos={videos} setVideos={setVideos} />}
-      </form>
+    // <>
+    //   <form onSubmit={handleSubmit}>
+    //     <TextField
+    //       onChange={(e) => {
+    //         setWarning(false);
+    //         setSearchTerm(e.target.value);
+    //       }}
+    //       label="search"
+    //       variant="outlined"
+    //     />
+    //     {videos && <SortByDate videos={videos} setVideos={setVideos} />}
+    //   </form>
 
-      {warning && <p>Please insert a term</p>}
-      {videos && <Videos data={videos} />}
+
+    //   {warning && <p>Please insert a term</p>}
+    // //   {videos && <Videos data={videos} />}
+    // </>
+
+    <>
+      <SortByDate />
+      <Videos data={videos} />
+
+
     </>
   );
 };
