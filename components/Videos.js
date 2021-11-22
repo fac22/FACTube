@@ -14,7 +14,7 @@ const Videos = () => {
             controls="true"
             url={`https://www.youtube.com/embed/${video.id.videoId}`}
           />
-          <LikeButton />
+          <LikeButton video={video} />
         </div>
       ))}
     </div>
