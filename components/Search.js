@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Videos from './Videos';
 import SortByDate from './SortByDate';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import SearchIcon from '@material-ui/icons/Search';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,28 +24,24 @@ const Search = () => {
         setVideos(data.items);
         setSearchTerm(null);
       });
+
     event.target.reset();
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="search"></label>
-        <input
-          type="text"
-          aria-label="Search videos"
-          placeholder="Search videos"
-          name="search"
-          id="search"
-          value={searchTerm}
+        <TextField
           onChange={(e) => {
             setWarning(false);
             setSearchTerm(e.target.value);
           }}
+          label="search"
+          variant="outlined"
         />
-        <button type="submit">Search</button>
         {videos && <SortByDate videos={videos} setVideos={setVideos} />}
       </form>
+
       {warning && <p>Please insert a term</p>}
       {videos && <Videos data={videos} />}
     </>
