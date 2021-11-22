@@ -1,4 +1,5 @@
 import ReactPlayer from 'react-player/youtube';
+import LikeButton from './LikeButton';
 
 const Videos = ({ data }) => {
   return (
@@ -12,6 +13,7 @@ const Videos = ({ data }) => {
             controls="true"
             url={`https://www.youtube.com/embed/${video.id.videoId}`}
           />
+          <LikeButton />
         </div>
       ))}
     </div>
