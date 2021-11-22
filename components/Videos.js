@@ -1,21 +1,59 @@
 import ReactPlayer from 'react-player/youtube';
 import LikeButton from './LikeButton';
 import { dummyData } from '../lib/database';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { shadows } from '@mui/system';
 
 const Videos = () => {
   return (
-    <div className="video-list">
+    <div>
       {dummyData.map((video) => (
-        <div className="video-card" key={video.id.videoId}>
-          <p>{video.snippet.title}</p>
-          <h3>{video.snippet.channelTitle}</h3>
-          <p>{video.snippet.description}</p>
-          <ReactPlayer
-            controls="true"
-            url={`https://www.youtube.com/embed/${video.id.videoId}`}
-          />
-          <LikeButton />
-        </div>
+        <Card
+          variant="outlined"
+          sx={{
+            maxWidth: 'fit-content',
+            padding: 2,
+            mb: 2,
+            boxShadow: 2,
+          }}
+          key={video.id.videoId}
+        >
+          <CardMedia>
+            <ReactPlayer
+              controls={true}
+              url={`https://www.youtube.com/embed/${video.id.videoId}`}
+            />
+          </CardMedia>
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              sx={{
+                fontFamily: 'Roboto',
+                fontSize: 20,
+              }}
+            >
+              {video.snippet.title}
+            </Typography>
+            <Typography
+              gutterBottom
+              sx={{ fontFamily: 'Roboto', fontSize: 17 }}
+            >
+              {video.snippet.channelTitle}
+            </Typography>
+            <Typography
+              gutterBottom
+              color="text.secondary"
+              sx={{ fontFamily: 'Roboto', fontSize: 15 }}
+            >
+              {video.snippet.description}
+            </Typography>
+            <LikeButton />
+          </CardContent>
+        </Card>
       ))}
     </div>
   );
