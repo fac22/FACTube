@@ -2,11 +2,9 @@ import Head from 'next/head';
 import Layout from '../components/Layout.js';
 import Search from '../components/Search.js';
 // import Videos from '../components/Videos.js';
-
-//import { supabase } from '../lib/initSupabase';
 import { ourVideos } from '../lib/database';
 
-export default function Home({ catalogue }) {
+const Home = ({ catalogue }) => {
   return (
     <div>
       <Head>
@@ -47,7 +45,7 @@ export default function Home({ catalogue }) {
       </Layout>
     </div>
   );
-}
+};
 
 // export async function getServerSideProps({ req, res }) {
 //   const { data, error } = await supabase.from('Videos').select('*');
@@ -76,3 +74,5 @@ export async function getServerSideProps({ req, res }) {
       };
     });
 }
+
+export default Home;

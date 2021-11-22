@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { supabase } from '../lib/initSupabase';
 
 const Navbar = () => {
   return (
@@ -34,6 +35,12 @@ const Navbar = () => {
           FAC-tube
         </Typography>
         <Avatar />
+        <button
+          className="button block"
+          onClick={() => supabase.auth.signOut()}
+        >
+          Sign Out
+        </button>
       </Toolbar>
     </AppBar>
   );
