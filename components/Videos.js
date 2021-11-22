@@ -51,7 +51,7 @@ const Videos = () => {
             >
               {video.snippet.description}
             </Typography>
-            <LikeButton />
+            <LikeButton video={video} />
           </CardContent>
         </Card>
       ))}
