@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/initSupabase';
 import { ourVideos } from '../lib/database';
 
-const SessionHandler = () => {
+export function SessionHandler() {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const SessionHandler = () => {
   }, []);
 
   return session;
-};
+}
 
 const Home = ({ catalogue }) => {
   return (
@@ -88,4 +88,4 @@ export async function getServerSideProps({ req, res }) {
     });
 }
 
-export { SessionHandler, Home };
+export default Home;
