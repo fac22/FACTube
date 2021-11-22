@@ -21,7 +21,7 @@ const Auth = () => {
   return (
     <>
       <h1>Log In</h1>
-      <p>We'll email you a magic link to log in</p>
+      <p>We will email you a magic link to log in</p>
       <input
         type="email"
         placeholder="Your email"
