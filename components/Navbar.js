@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { supabase } from '../lib/initSupabase';
+import Link from 'next/link';
 
 const Navbar = () => {
   return (
@@ -30,17 +30,17 @@ const Navbar = () => {
           <MenuIcon />
         </IconButton>
         <Typography
-          sx={{ flexGrow: 1, fontFamily: 'Montserrat', fontSize: 28 }}
+          sx={{ flexGrow: 1, fontFamily: 'Montserrat', fontSize: 28, ml: 4 }}
         >
-          FAC-tube
+          <Link href="/">
+            <a>FAC-tube</a>
+          </Link>
         </Typography>
-        <Avatar />
-        <button
-          className="button block"
-          onClick={() => supabase.auth.signOut()}
-        >
-          Sign Out
-        </button>
+        <IconButton>
+          <Link href="/login">
+            <Avatar />
+          </Link>
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
