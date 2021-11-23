@@ -4,6 +4,7 @@ import FavoriteOutlined from '@material-ui/icons/FavoriteOutlined';
 import IconButton from '@mui/material/IconButton';
 import { dummyProfiles, dummyLikeLists } from '../lib/database';
 import { supabase } from '../lib/initSupabase';
+import { getUserId } from '../lib/model';
 
 const dbAddLike = (user, video) => {
   const newLike = { id: Math.random(), user_id: user, video_id: video };
@@ -22,12 +23,8 @@ const likeChecker = (current, video) => {
   }
 };
 
-const dbGetUserId = () => {
-  return !supabase.auth.user() ? 0 : supabase.auth.user().id;
-};
-
 const LikeButton = ({ video }) => {
-  const currentUserId = dbGetUserId();
+  const currentUserId = getUserId();
   // const [like, setLike] = useState(
   //   likeChecker(currentUserId, video.id.videoId)
   //   );
@@ -37,7 +34,7 @@ const LikeButton = ({ video }) => {
 
   const addLike = () => {
     setLike(true);
-    video.likes += 1;
+    video.total_likes += 1;
     dbAddLike(currentUserId, video.id.videoId);
   };
   const removeLike = () => {
