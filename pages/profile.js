@@ -16,7 +16,7 @@ import Auth from '../components/Auth';
 import Account from '../components/Account';
 import { getAllUsernames } from '../lib/model';
 
-console.log(getAllUsernames());
+// console.log(getAllUsernames());
 
 export default function Profile() {
   const [session, setSession] = useState(null);

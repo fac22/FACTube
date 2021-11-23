@@ -2,18 +2,24 @@ import React from 'react';
 import { getAllVideos } from '../lib/model';
 
 // getAllVideos().then((data) => console.log(data));
+let array = [];
+// console.log(getAllVideos());
 
 const Catalogue = () => {
-  //   const allVideos = getAllVideos()
-  //     .then((data) => data)
-  //     .then((data) => console.log('all video result ->', data));
+  console.log(getAllVideos());
+  //   const allVideo = getAllVideos().then((data) => console.log(data));
 
-  const allVideos = getAllVideos().then((data) => data);
-  //   let promise = new Promise.resolve(allVideos);
-  //   const data = allVideos.map((video) => video);
-  console.log(promise);
+  //   Promise.all([getAllVideos()]).then((values) => {
+  //     console.log('values result:', values[0]);
+  //     // values.map((video) => array.push(...video));
+  //     // console.log(result);
+  //     // return result;
+  //   });
+  //   console.log(array);
 
-  return <div>{}</div>;
+  //   console.log('allVideo', allVideo);
+
+  return <div>hello</div>;
 };
 
 export default Catalogue;
