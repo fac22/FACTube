@@ -124,6 +124,13 @@ const Account = ({ session }) => {
               Upload
             </Button>
           </label>
+          <TextField
+            id="email-input"
+            name="email"
+            type="text"
+            value={session.user.email}
+            disabled
+          />
 
           <TextField
             id="username-input"
