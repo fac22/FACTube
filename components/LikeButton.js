@@ -3,7 +3,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteOutlined from '@material-ui/icons/FavoriteOutlined';
 import IconButton from '@mui/material/IconButton';
 import { dummyProfiles, dummyLikeLists } from '../lib/database';
-import { supabase } from '../lib/database';
+import { supabase } from '../lib/initSupabase';
 
 const dbAddLike = (user, video) => {
   const newLike = { id: Math.random(), user_id: user, video_id: video };
@@ -14,25 +14,36 @@ const dbRemoveLike = (user, video) => {
   // dummyLikeLists.splice(unLike);
 };
 
-const dbGetUser = () => {
-  return supabase === undefined ? 0 : supabase.auth.user();
+const likeChecker = (current, video) => {
+  if (dummyLikeLists.has(current, video)) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const dbGetUserId = () => {
+  return !supabase.auth.user() ? 0 : supabase.auth.user().id;
 };
 
 const LikeButton = ({ video }) => {
+  const currentUserId = dbGetUserId();
+  // const [like, setLike] = useState(
+  //   likeChecker(currentUserId, video.id.videoId)
+  //   );
   const [like, setLike] = useState(false);
 
-  const currentUserOld = dummyProfiles[1].id;
-  const currentUser = dbGetUser();
+  // const currentUserOld = dummyProfiles[1].id;
 
   const addLike = () => {
     setLike(true);
     video.likes += 1;
-    dbAddLike(currentUser, video.id.videoId);
+    dbAddLike(currentUserId, video.id.videoId);
   };
   const removeLike = () => {
     setLike(false);
     video.likes -= 1;
-    dbRemoveLike(currentUser, video.id.videoId);
+    dbRemoveLike(currentUserId, video.id.videoId);
   };
 
   if (!like) {
