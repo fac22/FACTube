@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/initSupabase';
 import Auth from '../components/Auth';
 import Account from '../components/Account';
-import { getAllUsernames } from '../lib/model';
-
-// console.log(getAllUsernames());
 
 export default function Profile() {
   const [session, setSession] = useState(null);
