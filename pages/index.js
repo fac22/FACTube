@@ -25,7 +25,7 @@ const Home = ({ databaseVideos }) => {
           <CardMedia>
             <ReactPlayer
               controls={true}
-              url={`https://www.youtube.com/embed/${video.id}`}
+              url={`https://www.youtube.com/embed/${video.yt_id}`}
               width="100%"
             />
           </CardMedia>
@@ -40,7 +40,7 @@ const Home = ({ databaseVideos }) => {
             >
               {video.video_title}
             </Typography>
-            {/* <Typography
+            <Typography
               gutterBottom
               sx={{ fontFamily: 'Roboto', fontSize: 17 }}
             >
@@ -52,8 +52,8 @@ const Home = ({ databaseVideos }) => {
               sx={{ fontFamily: 'Roboto', fontSize: 15 }}
             >
               {video.description}
-            </Typography> */}
-            {/* <LikeButton video={video} />  */}
+            </Typography>
+            {/* <LikeButton /> */}
           </CardContent>
         </Card>
       ))}
