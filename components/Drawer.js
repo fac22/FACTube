@@ -60,11 +60,19 @@ export default function DrawerComponent() {
             </ListItem>
             <Divider />
             <ListItem>
-              <Typography sx={{ mt: 2 }}>My Videos</Typography>
+              <Typography sx={{ mt: 2 }}>
+                <Link href="/myvideos">
+                  <a>My Videos</a>
+                </Link>{' '}
+              </Typography>
             </ListItem>
             <Divider />
             <ListItem>
-              <Typography sx={{ mt: 2 }}> Search</Typography>
+              <Typography sx={{ mt: 2 }}>
+                <Link href="/search">
+                  <a>Search</a>
+                </Link>{' '}
+              </Typography>
             </ListItem>
             <Divider />
           </List>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Videos from './Videos';
+import ApiVideos from './ApiVideos';
 import SortByDate from './SortByDate';
 import TextField from '@mui/material/TextField';
 
@@ -40,16 +40,13 @@ const Search = () => {
     //     {videos && <SortByDate videos={videos} setVideos={setVideos} />}
     //   </form>
 
-
     //   {warning && <p>Please insert a term</p>}
     // //   {videos && <Videos data={videos} />}
     // </>
 
     <>
       <SortByDate />
-      <Videos data={videos} />
-
-
+      <ApiVideos data={videos} />
     </>
   );
 };

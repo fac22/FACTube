@@ -6,7 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-const Videos = () => {
+const ApiVideos = () => {
   return (
     <div>
       {dummyData.map((video) => (
@@ -50,7 +50,7 @@ const Videos = () => {
             >
               {video.snippet.description}
             </Typography>
-            <LikeButton video={video} />
+            {/* <LikeButton video={video} /> */}
           </CardContent>
         </Card>
       ))}
@@ -58,4 +58,4 @@ const Videos = () => {
   );
 };
 
-export default Videos;
+export default ApiVideos;
