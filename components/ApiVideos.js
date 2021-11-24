@@ -1,15 +1,14 @@
 import ReactPlayer from 'react-player/youtube';
 import LikeButton from './LikeButton';
-import { dummyData } from '../lib/database';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-const ApiVideos = () => {
+const ApiVideos = ({ data }) => {
   return (
     <div>
-      {dummyData.map((video) => (
+      {data.map((video) => (
         <Card
           variant="outlined"
           sx={{

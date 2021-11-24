@@ -27,26 +27,21 @@ const Search = () => {
   };
 
   return (
-    // <>
-    //   <form onSubmit={handleSubmit}>
-    //     <TextField
-    //       onChange={(e) => {
-    //         setWarning(false);
-    //         setSearchTerm(e.target.value);
-    //       }}
-    //       label="search"
-    //       variant="outlined"
-    //     />
-    //     {videos && <SortByDate videos={videos} setVideos={setVideos} />}
-    //   </form>
-
-    //   {warning && <p>Please insert a term</p>}
-    // //   {videos && <Videos data={videos} />}
-    // </>
-
     <>
-      <SortByDate />
-      <ApiVideos data={videos} />
+      <form onSubmit={handleSubmit}>
+        <TextField
+          onChange={(e) => {
+            setWarning(false);
+            setSearchTerm(e.target.value);
+          }}
+          label="search"
+          variant="outlined"
+        />
+        {videos && <SortByDate videos={videos} setVideos={setVideos} />}
+      </form>
+
+      {warning && <p>Please insert a term</p>}
+      {videos && <ApiVideos data={videos} />}
     </>
   );
 };
