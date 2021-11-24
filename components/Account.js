@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@mui/material/Typography';
 import SaveIcon from '@mui/icons-material/Save';
-import DeleteIcon from '@mui/icons-material/Delete';
+import LogoutIcon from '@mui/icons-material/Logout';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
@@ -50,13 +50,12 @@ const Account = ({ session }) => {
     }
   }
 
-  async function updateProfile({
-    username,
-    website,
-    avatar_url,
-    cohort,
-    about_me,
-  }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateProfile();
+  };
+
+  async function updateProfile() {
     try {
       setLoading(true);
       const user = supabase.auth.user();
@@ -84,6 +83,12 @@ const Account = ({ session }) => {
       setLoading(false);
     }
   }
+
+  const signout = async () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+
   const Input = styled('input')({
     display: 'none',
   });
@@ -107,7 +112,7 @@ const Account = ({ session }) => {
           My Profile
         </Typography>
 
-        <form onSubmit={updateProfile}>
+        <form onSubmit={handleSubmit}>
           <Avatar
             alt={username}
             src={avatar_url}
@@ -133,6 +138,7 @@ const Account = ({ session }) => {
           />
 
           <TextField
+            InputLabelProps={{ shrink: true }}
             id="username-input"
             name="username"
             label="Username"
@@ -142,6 +148,7 @@ const Account = ({ session }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
+            InputLabelProps={{ shrink: true }}
             id="website-input"
             name="website"
             label="Website"
@@ -150,6 +157,7 @@ const Account = ({ session }) => {
             onChange={(e) => setWebsite(e.target.value)}
           />
           <TextField
+            InputLabelProps={{ shrink: true }}
             id="cohort-input"
             name="cohort"
             label="FAC cohort"
@@ -158,6 +166,7 @@ const Account = ({ session }) => {
             onChange={(e) => setCohort(e.target.value)}
           />
           <TextField
+            InputLabelProps={{ shrink: true }}
             id="about_me-input"
             label="About Me"
             placeholder="About Me"
@@ -181,13 +190,14 @@ const Account = ({ session }) => {
         </form>
         <Box sx={{ mt: 3 }}>
           <Button
+            onClick={signout}
             color="error"
             variant="contained"
-            endIcon={<DeleteIcon />}
+            endIcon={<LogoutIcon />}
             type="submit"
             disabled={loading}
           >
-            Delete my profile
+            Sign Out
           </Button>
         </Box>
       </Box>
