@@ -1,8 +1,8 @@
 import React from 'react';
-import { getAllVideos } from '../lib/model';
+import { getServerSideProps } from '.';
 
 const Catalogue = ({ videos }) => {
-  console.log(getAllVideos());
+  console.log(getAllVideos(videos));
   //   const allVideo = getAllVideos().then((data) => console.log(data));
 
   //   Promise.all([getAllVideos()]).then((values) => {

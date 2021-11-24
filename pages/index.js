@@ -1,17 +1,13 @@
-import Head from 'next/head';
-import Layout from '../components/Layout.js';
 import Search from '../components/Search.js';
 import { supabase } from '../lib/initSupabase.js';
 import Videos from '../components/Videos.js';
-import { ourVideos } from '../lib/database';
 
 const Home = ({ videos }) => {
   return (
     <div>
-      <Head>
-        <title>FAC-Tube</title>
-      </Head>
+      <title>FAC-Tube</title>
       <Search />
+      {videos}
       {/* <Videos data={videos} /> */}
     </div>
   );
