@@ -1,15 +1,3 @@
-// import Account from '../components/Account';
-
-// const Profile = () => {
-//   return (
-//     <>
-//       <Account />
-//     </>
-//   );
-// };
-
-// export default Profile;
-
 import { useState, useEffect } from 'react';
 import { supabase } from '../lib/initSupabase';
 import Auth from '../components/Auth';
@@ -30,12 +18,12 @@ export default function Profile() {
   }, []);
 
   return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
+    <>
       {!session ? (
         <Auth />
       ) : (
         <Account key={session.user.id} session={session} />
       )}
-    </div>
+    </>
   );
 }
