@@ -1,47 +1,74 @@
-import Head from 'next/head';
-import Layout from '../components/Layout.js';
 import Search from '../components/Search.js';
-// import Videos from '../components/Videos.js';
-import { ourVideos } from '../lib/database';
+import { supabase } from '../lib/initSupabase.js';
+import ReactPlayer from 'react-player/youtube';
+import LikeButton from '../components/LikeButton';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
 
-const Home = ({ catalogue }) => {
+const Home = ({ databaseVideos }) => {
   return (
     <div>
-      <Head>
-        <title>FAC-Tube</title>
-      </Head>
-      <Search />
-      {/* <Videos data={catalogue} /> */}
+      <title>FAC-Tube</title>
+
+      {databaseVideos.map((video) => (
+        <Card
+          variant="outlined"
+          sx={{
+            padding: 3,
+            mb: 2,
+            boxShadow: 2,
+          }}
+          key={video.id}
+        >
+          <CardMedia>
+            <ReactPlayer
+              controls={true}
+              url={`https://www.youtube.com/embed/${video.id}`}
+              width="100%"
+            />
+          </CardMedia>
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              sx={{
+                fontFamily: 'Roboto',
+                fontSize: 20,
+              }}
+            >
+              {video.video_title}
+            </Typography>
+            {/* <Typography
+              gutterBottom
+              sx={{ fontFamily: 'Roboto', fontSize: 17 }}
+            >
+              {video.channel_title}
+            </Typography>
+            <Typography
+              gutterBottom
+              color="text.secondary"
+              sx={{ fontFamily: 'Roboto', fontSize: 15 }}
+            >
+              {video.description}
+            </Typography> */}
+            {/* <LikeButton video={video} />  */}
+          </CardContent>
+        </Card>
+      ))}
     </div>
   );
 };
 
-// export async function getServerSideProps({ req, res }) {
-//   const { data, error } = await supabase.from('Videos').select('*');
-//   return {
-//     props: {
-//       data: data,
-//       dataError: error,
-//     },
-//   };
-// }
-
 export async function getServerSideProps({ req, res }) {
-  const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-  const details = `snippet%2CcontentDetails%2Cstatistics`;
-  const ourVideoIds = ourVideos.map((video) => `&id=${video.yt_id}`).join('');
-
-  let url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet${ourVideoIds}&key=${apiKey}`;
-
-  return fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      return {
-        props: {
-          catalogue: data,
-        },
-      };
-    });
+  const { data, error } = await supabase.from('videos').select();
+  return {
+    props: {
+      databaseVideos: data,
+      dataError: error,
+    },
+  };
 }
 
 export default Home;
