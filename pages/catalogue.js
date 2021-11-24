@@ -1,11 +1,7 @@
 import React from 'react';
 import { getAllVideos } from '../lib/model';
 
-// getAllVideos().then((data) => console.log(data));
-let array = [];
-// console.log(getAllVideos());
-
-const Catalogue = () => {
+const Catalogue = ({ videos }) => {
   console.log(getAllVideos());
   //   const allVideo = getAllVideos().then((data) => console.log(data));
 
