@@ -16,6 +16,7 @@ const Login = () => {
 
   return (
     <>
+      <title>FAC-Tube: Login</title>
       {!session ? (
         <Auth />
       ) : (

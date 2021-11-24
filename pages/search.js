@@ -1,7 +1,12 @@
 import Search from '../components/Search';
 
 const SearchPage = ({}) => {
-  return <Search />;
+  return (
+    <>
+      <title>FAC-Tube: Search</title>
+      <Search />
+    </>
+  );
 };
 
 export default SearchPage;
