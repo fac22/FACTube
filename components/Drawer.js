@@ -75,6 +75,13 @@ export default function DrawerComponent() {
               </Typography>
             </ListItem>
             <Divider />
+            <ListItem>
+              <Typography sx={{ mt: 2 }}>
+                <Link href="/addvideo">
+                  <a>Add a video</a>
+                </Link>{' '}
+              </Typography>
+            </ListItem>
           </List>
         </Box>
       </Drawer>

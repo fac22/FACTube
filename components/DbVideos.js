@@ -36,7 +36,7 @@ const DbVideos = ({ data }) => {
             >
               {video.video_title}
             </Typography>
-            {/* <Typography
+            <Typography
               gutterBottom
               sx={{ fontFamily: 'Roboto', fontSize: 17 }}
             >
@@ -48,7 +48,7 @@ const DbVideos = ({ data }) => {
               sx={{ fontFamily: 'Roboto', fontSize: 15 }}
             >
               {video.description}
-            </Typography> */}
+            </Typography>
             {/* <LikeButton video={video} /> */}
           </CardContent>
         </Card>
