@@ -4,12 +4,14 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Router, { useRouter } from 'next/router';
 
 const AddVideo = () => {
   const [loading, setLoading] = useState(true);
   const [yt_id, setyt_id] = useState('');
   const [video_title, setvideo_title] = useState(null);
   const [description, setdescription] = useState(null);
+  const [channel_title, setchannel_title] = useState(null);
 
   async function addVideo() {
     try {
@@ -20,6 +22,7 @@ const AddVideo = () => {
         yt_id,
         video_title,
         description,
+        channel_title,
         added_by: user.id,
       };
 
@@ -36,10 +39,12 @@ const AddVideo = () => {
       setLoading(false);
     }
   }
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addVideo();
+    router.push('/');
   };
 
   return (
@@ -87,9 +92,17 @@ const AddVideo = () => {
             name="Video Description"
             label="Video Description"
             type="text"
-            required
             value={description}
             onChange={(e) => setdescription(e.target.value)}
+          />
+          <TextField
+            InputLabelProps={{ shrink: true }}
+            id="channelTitle-input"
+            name="Channel Title"
+            label="Channel Title"
+            type="text"
+            value={channel_title}
+            onChange={(e) => setchannel_title(e.target.value)}
           />
 
           <Box sx={{ mt: 5 }}>
