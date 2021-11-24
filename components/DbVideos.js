@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-const ApiVideos = ({ data }) => {
+const DbVideos = ({ data }) => {
   return (
     <div>
       {data.map((video) => (
@@ -16,12 +16,12 @@ const ApiVideos = ({ data }) => {
             mb: 2,
             boxShadow: 2,
           }}
-          key={video.id.videoId}
+          key={video.yt_id}
         >
           <CardMedia>
             <ReactPlayer
               controls={true}
-              url={`https://www.youtube.com/embed/${video.id.videoId}`}
+              url={`https://www.youtube.com/embed/${video.yt_id}`}
               width="100%"
             />
           </CardMedia>
@@ -34,21 +34,21 @@ const ApiVideos = ({ data }) => {
                 fontSize: 20,
               }}
             >
-              {video.snippet.title}
+              {video.video_title}
             </Typography>
-            <Typography
+            {/* <Typography
               gutterBottom
               sx={{ fontFamily: 'Roboto', fontSize: 17 }}
             >
-              {video.snippet.channelTitle}
+              {video.channel_title}
             </Typography>
             <Typography
               gutterBottom
               color="text.secondary"
               sx={{ fontFamily: 'Roboto', fontSize: 15 }}
             >
-              {video.snippet.description}
-            </Typography>
+              {video.description}
+            </Typography> */}
             {/* <LikeButton video={video} /> */}
           </CardContent>
         </Card>
@@ -57,4 +57,4 @@ const ApiVideos = ({ data }) => {
   );
 };
 
-export default ApiVideos;
+export default DbVideos;

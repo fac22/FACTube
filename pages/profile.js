@@ -16,6 +16,7 @@ export default function Profile() {
 
   return (
     <>
+      <title>FAC-Tube: My Profile</title>
       {!session ? (
         <Auth />
       ) : (
