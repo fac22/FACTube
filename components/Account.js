@@ -85,8 +85,7 @@ const Account = ({ session }) => {
   }
 
   const signout = async () => {
-    window.localStorage.clear();
-    window.location.reload();
+    const { error } = await supabase.auth.signOut();
   };
 
   const Input = styled('input')({
