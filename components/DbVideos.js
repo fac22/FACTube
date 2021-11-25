@@ -12,11 +12,7 @@ const DbVideos = ({ data }) => {
   let videoOrder = likeOrder;
   return (
     <div>
-      <LikeFilter
-        data={data}
-        likeOrder={likeOrder}
-        setLikeOrder={setLikeOrder}
-      />
+      <LikeFilter data={data} setLikeOrder={setLikeOrder} />
       {videoOrder.map((video) => (
         <Card
           variant="outlined"

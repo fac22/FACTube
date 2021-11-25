@@ -5,8 +5,8 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import { orderBy } from 'lodash';
 
-const LikeFilter = ({ data, likeOrder, setLikeOrder }) => {
-  const sortLikes = (e) => {
+const LikeFilter = ({ data, setLikeOrder }) => {
+  const sortLikes = () => {
     const orderedVideos = orderBy(data, ['total_likes'], ['desc']);
     setLikeOrder(orderedVideos);
   };
