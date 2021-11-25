@@ -1,5 +1,5 @@
 import ReactPlayer from 'react-player/youtube';
-// import LikeButton from './LikeButton';
+import LikeButton from './LikeButton';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -49,7 +49,7 @@ const DbVideos = ({ data }) => {
             >
               {video.description}
             </Typography>
-            {/* <LikeButton video={video} /> */}
+            <LikeButton video={video} />
           </CardContent>
         </Card>
       ))}
