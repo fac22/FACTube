@@ -45,35 +45,32 @@ const dbUpdateLikeTotal = async (video_id, new_likes) => {
   }
 };
 
+// If this worked, it would check if a user-video-combination is already in our likes table:
+/*
 const likeChecker = async (video_id, user_id) => {
-  try {
-    const updates = { video_id, user_id };
-    let { data, error } = await supabase
-      .from('likes')
-      .select()
-      .eq(`video_id`, `${video_id}`)
-      .eq(`user_id`, `${user_id}`);
-    // console.log(data.length);
-    if (data.length === 0) {
-      // console.log('no');
-      return false;
-    } else {
-      // console.log('yes');
-      return true;
-    }
-  } catch (error) {
-    alert(error.message);
+  let { data, error } = await supabase
+    .from('likes')
+    .select()
+    .eq(`video_id`, `${video_id}`)
+    .eq(`user_id`, `${user_id}`);
+  if (data.length === 0) {
+    return false;
+  } else {
+    return true;
   }
 };
+*/
 
 const LikeButton = ({ video }) => {
   const user_id = getUserId();
   const video_id = video.id;
-  console.log(user_id);
-  const isLiked = likeChecker(video_id, user_id);
-  console.log(isLiked);
 
+  // If this worked, it would decide to fill/unfill the heart initially
+  // const [like, setLike] = useState(async () => {
+  //   await likeChecker(video_id, user_id);
+  // });
   const [like, setLike] = useState();
+
   const [total, setTotal] = useState(video.total_likes);
 
   const addLike = () => {
