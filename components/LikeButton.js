@@ -6,48 +6,98 @@ import { dummyProfiles, dummyLikeLists } from '../lib/database';
 import { supabase } from '../lib/initSupabase';
 import { getUserId } from '../lib/model';
 
-const dbAddLike = (user, video) => {
-  const newLike = { id: Math.random(), user_id: user, video_id: video };
-  dummyLikeLists.push(newLike);
+const dbAddLike = async (video_id, user_id) => {
+  try {
+    let { error } = await supabase
+      .from('likes')
+      .upsert({ video_id, user_id }, { returning: 'minimal' });
+    if (error) {
+      throw error;
+    }
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
-const dbRemoveLike = (user, video) => {
-  // dummyLikeLists.splice(unLike);
+const dbRemoveLike = async (video_id, user_id) => {
+  try {
+    const updates = { video_id, user_id };
+    let { error } = await supabase.from('likes').delete().match(updates);
+    if (error) {
+      throw error;
+    }
+  } catch (error) {
+    alert(error.message);
+  }
 };
 
-const likeChecker = (current, video) => {
-  if (dummyLikeLists.has(current, video)) {
-    return true;
-  } else {
-    return false;
+const dbUpdateLikeTotal = async (video_id, new_likes) => {
+  try {
+    let { error } = await supabase
+      .from('videos')
+      .update({ total_likes: `${new_likes}` })
+      .eq('id', `${video_id}`);
+    if (error) {
+      throw error;
+    }
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+const likeChecker = async (video_id, user_id) => {
+  try {
+    const updates = { video_id, user_id };
+    let { data, error } = await supabase
+      .from('likes')
+      .select()
+      .eq(`video_id`, `${video_id}`)
+      .eq(`user_id`, `${user_id}`);
+    // console.log(data.length);
+    if (data.length === 0) {
+      // console.log('no');
+      return false;
+    } else {
+      // console.log('yes');
+      return true;
+    }
+  } catch (error) {
+    alert(error.message);
   }
 };
 
 const LikeButton = ({ video }) => {
-  const currentUserId = getUserId();
-  // const [like, setLike] = useState(
-  //   likeChecker(currentUserId, video.id.videoId)
-  //   );
-  const [like, setLike] = useState(false);
+  const user_id = getUserId();
+  const video_id = video.id;
+  console.log(user_id);
+  const isLiked = likeChecker(video_id, user_id);
+  console.log(isLiked);
 
-  // const currentUserOld = dummyProfiles[1].id;
+  const [like, setLike] = useState();
+  const [total, setTotal] = useState(video.total_likes);
 
   const addLike = () => {
     setLike(true);
-    video.total_likes += 1;
-    dbAddLike(currentUserId, video.id.videoId);
+    dbAddLike(video_id, user_id);
+    setTotal(total + 1);
+    dbUpdateLikeTotal(video_id, total + 1);
   };
   const removeLike = () => {
     setLike(false);
-    video.total_likes -= 1;
-    dbRemoveLike(currentUserId, video.id.videoId);
+
+    dbRemoveLike(video_id, user_id);
+    setTotal(total - 1);
+    dbUpdateLikeTotal(video_id, total - 1);
+
   };
 
   if (!like) {
     return (
       <IconButton aria-label="Like" onClick={() => addLike()}>
         <FavoriteBorderIcon fontSize="large" sx={{ color: '#f44336' }} />
-        <p>{video.total_likes}</p>
+
+        <p>{total}</p>
+
       </IconButton>
     );
   }
@@ -58,7 +108,9 @@ const LikeButton = ({ video }) => {
       sx={{ color: '#f44336' }}
     >
       <FavoriteOutlined fontSize="large" />
-      <p>{video.total_likes}</p>
+
+      <p>{total}</p>
+
     </IconButton>
   );
 };
