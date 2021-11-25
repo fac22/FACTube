@@ -5,8 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "cypress:open": "cypress open"
+    "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.6.0",
@@ -24,7 +23,6 @@
     "react-player": "^2.9.0"
   },
   "devDependencies": {
-    "cypress": "^9.0.0",
     "eslint": "7",
     "eslint-config-next": "12.0.3"
   }
