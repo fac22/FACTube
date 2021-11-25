@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '../lib/initSupabase';
 import Auth from '../components/Auth';
 
-export default function myVideosPage() {
+export default function MyVideosPage() {
   const [session, setSession] = useState(null);
 
   useEffect(() => {
