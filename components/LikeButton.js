@@ -84,16 +84,20 @@ const LikeButton = ({ video }) => {
   };
   const removeLike = () => {
     setLike(false);
+
     dbRemoveLike(video_id, user_id);
     setTotal(total - 1);
     dbUpdateLikeTotal(video_id, total - 1);
+
   };
 
   if (!like) {
     return (
       <IconButton aria-label="Like" onClick={() => addLike()}>
         <FavoriteBorderIcon fontSize="large" sx={{ color: '#f44336' }} />
+
         <p>{total}</p>
+
       </IconButton>
     );
   }
@@ -104,7 +108,9 @@ const LikeButton = ({ video }) => {
       sx={{ color: '#f44336' }}
     >
       <FavoriteOutlined fontSize="large" />
+
       <p>{total}</p>
+
     </IconButton>
   );
 };
