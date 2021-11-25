@@ -1,5 +1,5 @@
 import ReactPlayer from 'react-player/youtube';
-// import LikeButton from './LikeButton';
+import LikeButton from './LikeButton';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -36,7 +36,7 @@ const DbVideos = ({ data }) => {
             >
               {video.video_title}
             </Typography>
-            {/* <Typography
+            <Typography
               gutterBottom
               sx={{ fontFamily: 'Roboto', fontSize: 17 }}
             >
@@ -48,8 +48,8 @@ const DbVideos = ({ data }) => {
               sx={{ fontFamily: 'Roboto', fontSize: 15 }}
             >
               {video.description}
-            </Typography> */}
-            {/* <LikeButton video={video} /> */}
+            </Typography>
+            <LikeButton video={video} />
           </CardContent>
         </Card>
       ))}
