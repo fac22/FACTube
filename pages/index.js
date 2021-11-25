@@ -7,7 +7,6 @@ const Home = ({ databaseVideos }) => {
       <title>FAC-Tube</title>
       {<DbVideos data={databaseVideos} />}
     </>
-
   );
 };
 
