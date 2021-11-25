@@ -1,14 +1,23 @@
 import ReactPlayer from 'react-player/youtube';
-// import LikeButton from './LikeButton';
+import LikeButton from './LikeButton';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import LikeFilter from './LikeFilter';
+import { useState } from 'react';
 
 const DbVideos = ({ data }) => {
+  const [likeOrder, setLikeOrder] = useState(data);
+  let videoOrder = likeOrder;
   return (
     <div>
-      {data.map((video) => (
+      <LikeFilter
+        data={data}
+        likeOrder={likeOrder}
+        setLikeOrder={setLikeOrder}
+      />
+      {videoOrder.map((video) => (
         <Card
           variant="outlined"
           sx={{
@@ -49,7 +58,9 @@ const DbVideos = ({ data }) => {
             >
               {video.description}
             </Typography>
-            {/* <LikeButton video={video} /> */}
+
+            <LikeButton video={video} />
+
           </CardContent>
         </Card>
       ))}
