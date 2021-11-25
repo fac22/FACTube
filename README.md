@@ -69,30 +69,37 @@ then
 ### Wireframing & Prototype
 
 Our wireframes in Figma
+
 ![](Mobile.jpeg)
 
 ![](Desktop.png)
 
 ### Our MVP
 
-Our MVP has based on the features our user research had identified as the most important 📝
+Our MVP is based on the features our user research had identified as the most important 📝
 
 It has a home page with a community video library that is sortable by most liked
+
 ![](cap7.gif)
 
 a user can search YouTube
+
 ![](cap2.gif)
 
 a user can view and update their profile
+
 ![](cap.gif)
 
 a user can add a video to their library
+
 ![](cap5.gif)
 
 a user can view their added videos in their library
+
 ![](cap4.gif)
 
 a user can like a video
+
 ![](cap6.gif)
 
 ### Future improvements 🕰
@@ -149,8 +156,7 @@ Our [Kanban](https://github.com/fac22/FACTube/projects/1) board with time estima
 
 Lots of bugs!
 
-Fetching from a Supabase database using async functions
-was tricky to render on the page using React
-Customising Materials UI was harder than expected
-Our YouTube API key often maxxed out
-Vercel sometimes gave us errors in deployment that were not apparent in development
+- Fetching from a Supabase database using async functions was tricky to render on the page using React
+- Customising Materials UI was harder than expected
+- Our YouTube API key often maxxed out
+- Vercel sometimes gave us errors in deployment that were not apparent in development
