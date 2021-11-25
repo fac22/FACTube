@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FavoriteOutlined from '@material-ui/icons/FavoriteOutlined';
+import FavoriteOutlined from '@mui/icons-material/FavoriteOutlined';
 import IconButton from '@mui/material/IconButton';
-import { dummyProfiles, dummyLikeLists } from '../lib/database';
 import { supabase } from '../lib/initSupabase';
 import { getUserId } from '../lib/model';
 
@@ -88,7 +87,6 @@ const LikeButton = ({ video }) => {
     dbRemoveLike(video_id, user_id);
     setTotal(total - 1);
     dbUpdateLikeTotal(video_id, total - 1);
-
   };
 
   if (!like) {
@@ -97,20 +95,14 @@ const LikeButton = ({ video }) => {
         <FavoriteBorderIcon fontSize="large" sx={{ color: '#f44336' }} />
 
         <p>{total}</p>
-
       </IconButton>
     );
   }
   return (
-    <IconButton
-      aria-label="Like"
-      onClick={() => removeLike()}
-      sx={{ color: '#f44336' }}
-    >
-      <FavoriteOutlined fontSize="large" />
+    <IconButton aria-label="Like" onClick={() => removeLike()}>
+      <FavoriteOutlined fontSize="large" sx={{ color: '#f44336' }} />
 
       <p>{total}</p>
-
     </IconButton>
   );
 };
