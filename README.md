@@ -1,312 +1,162 @@
-# FAC-Tube
-
-## fac22 Project Weeks 7-9
-
-## Content
-- Our Team
-- The Product
-- Tech Stack & Tools
-- Software Development Lifecycle
-    - Planning
-    - Analysis
-    - Design
-    - Implementation/Build
-    - Test
-    - Deploy
-    - Maintain
-
-
-
-## Our Team
-- Co-authored-by: moggach <43313455+Moggach@users.noreply.github.com>
-- Co-authored-by: Danilo <81513148+danilo-cupido@users.noreply.github.com> 
-- Co-authored-by: Mohamed <76549147+Alisyad9@users.noreply.github.com>
-- Co-authored-by: Barbara <77367593+0bubbles0@users.noreply.github.com>
-
-Many thanks to our project & role mentors, the fac team and our code reviewers
-
+# FAC-Tube 📺
 
 ## The Product
-<!--
-### Talking Points
-- What are you building?
-- Why are you building it?
-- Scope: What are you **not** building?
-- How did you decide what features were important?
--->
-FAC-Tube is a website where members of the fac community (applicants, current cohorts, alumni) can easily find (tag, recommend) useful coding YouTube videos
 
+FAC-Tube is a website where members of the FAC community
+(applicants, current cohorts, alumni) can easily find and recommend useful coding YouTube videos.
 
+## Our Team
 
-## Tech Stack & Tools
-- Miro & Figma for Wireframing
-- Material UI for CSS components
-- Next.js with React.js for front-end & back-end
-- Supabase for our Postgres database & Authentication
-- Cypress for Testing
-- Vercel for Deployment
+- [Anna](https://github.com/Moggach) (QA)
+- [Danilo](https://github.com/danilo-cupido) (DevOps)
+- [Mohamed](https://github.com/Alisyad9)(UX)
+- [Barbara](https://github.com/0bubbles0) (Scrum)
+
+Many thanks to our project & role mentors, the FAC team and our code reviewers 🎉
+
+## Tech Stack 🥞
+
+- Miro & Figma for Wireframing 🎨
+- Material UI for CSS components 💅
+- Next.js with React.js for front-end & back-end 🚀
+- Supabase for our Postgres database & Authentication 🔑
+- Cypress for Testing 🌲
+- Vercel for Deployment ⚡️
 
 ### To view this project
-1. See our deployed version on Vercel with the link in the description
+
+1. [`See our deployed version on Vercel here`](https://fac-tube.vercel.app/)
 2. Run the code locally
-  - Clone the repo
-  - cd into the folder and run NPM install
-  - npm run dev &rarr; starts the server
 
-## Software Development Lifecycle
+Clone the repo
 
-## Planning
-<!--
-### Talking Points
-- How are you going to structure your sprints?
-- What order are you going to build in?
-- How did user research inform your plan?
+`cd` into the folder and run
 
-- Roles
-    - What roles did your team take on?
-        - Explain the roles and responsibilities of all people working within the software development lifecycle, and how they relate to the project (K2)
-    - Did these roles help your team work effectively?
-        - Outline how teams work effectively to produce software and how to contribute appropriately (K6)
-        - Compare and contrast the requirements of a software development team, and how they would ensure that each member (including themselves) were able to make a contribution (K6)
--->
-### User Research Script
-<!--
-- User
-- Requirement analysis
-    - How will you ensure your project is accessible to as many users as possible?
-    - Are there any legal or regulatory requirements you should consider?
-- Tech spikes
--->
-#### Introduction:
-    - Thank you for coming. We are Anna, Danilo, Mohamed, Barbara, current fac22. This is our in-house project
-    - We are making an app for FAC members, alumni and applicants. They can share YouTube tutorials they enjoyed so that learners don't waste time watching incorrect or outdated content
-    - We'd like you to answer as freely, as specifically and honestly as you you are comfortable with. All feedback is useful to us
-    - Person2 will be taking notes. We'll use these notes anonymously.
-    - The process will take about half an hour. Let us know if you would like a break at any point.
-    - If there are any questions you don't want to answer just let us know and we can move on.
-#### General Questions:
-    - What devices do you mostly use to learn coding? How long have you had/used these devices?
-    - What online coding resources do you currently use?/ What type of online resources do you use to learn coding (blog, text or video tutorials, discord chats...)
-    - What device do you currently use to access YouTube?
-    - Is YouTube app installed on your phone?
-    - What do you use YouTube for?
-        - What kind of videos do you watch?
-        - What YouTube features do you use? Make your own Playlists, create Videos...?
-    - Do you use captions when you watch Tutorials, what accessibility features are important to you?
-    - Have you ever liked, commented, engaged with coding tutorials on YouTube?
-#### Specific Questions:
-    - What portion of your learning is through tutorial videos? Why do/don't you like videos, why do/don't use it?
-    - What coding topics do you most research on YouTube?
-    - Would recommendations from other FAC members/alumni make you more likely to watch a video? If so, why?
-    - How much time do you spend on researching before you find what you're interested in?
-    - What length of videos do you typically watch? Would Timestamps make you more likely to watch a video?
-    - Would you find grouping resources by their duration helpful?
-    - How do you store information about coding, tutorials? What device, app?
-    - How do you structure your YouTube learning - e.g. by topic? Or by individual channel?
-    - Do you have any favourite YouTube coding channels?
-    - Do you use videos to learn new material or to consolidate previous learnings?
-    - What frustrates you about learning to code  online? In general? From YouTube tutorials?
+`NPM install`
 
+then
+
+`NPM run dev `
+
+## What we learnt 📚
+
+📌 How to analyse a problem we believed our users were facing
+
+📌 How to conduct user research to test our assumptions in that process
+
+📌 How to create a prototype based on that research
+
+📌 How to test our prototype with users
+
+📌 How to make adjustments to our prototype based on user feedback and identify an MVP
+
+📌 How to plan two build sprints to make that MVP
+
+📌 How to set up a Supabase database and access it using Next.js functions such as `getServerSideProps()`
+
+📌 How to query the YouTube API with a user generated search term and display the results on the page 📺
+
+📌 How to find and install relevant packages from NPM e.g. ReactPlayer 🧩
+
+📌 How to handle user authentification and login using Supabase
+
+📌 How to use Material UI to write our CSS
+
+📌 How to handle insertions and updates to our database based on user input
+
+📌 How to render different UIs depending on whether a user has logged in and who the user is 👩🏻‍💻
 
 ### Wireframing & Prototype
-- Miro & Figma
-![](https://i.imgur.com/1ezazDK.png)
 
+Our wireframes in Figma
 
+![](Mobile.jpeg)
 
-## Analysis
-<!--
-- Research
-    - What did you find out from user testing?
-- Project & Outcomes 
-    - Did your team work effectively?
-    - What would you do differently next time?
-    - Were your assumptions right or wrong?
-- Conclusions & Recommendations
-    - What features would you prioritise to build next?
-    - Was the project a success?
-- What might be the intended and unintended consequences of building this product?
--->
-### User research results
-✅ Our research interviews told us that they would find recommendations from other FAC members useful 
+![](Desktop.png)
 
-✅ They told us that they would like to be able to filter videos by topic and length
+### Our MVP
 
-❌ However, they told us that they didn't find it difficult to find good coding content on YouTube (depending on the topic!)
+Our MVP is based on the features our user research had identified as the most important 📝
 
+It has a home page with a community video library that is sortable by most liked
 
+![](cap7.gif)
 
-## Design
-<!--
-- How did you plan a user experience?
-- What technical decisions did you make?
-    - Server-render vs client-render vs both
-    - Relational or non-relational or no DB
-    - Self-hosted or platform-as-a-service
-    - Frontend first vs DB first
-- Did you create a technical specification?
-    - Review methods of software design with reference to functional/technical specifications and apply a justified approach to software development (K11, S11, S12)
--->
-### MVP
-#### Shrink idea into MVP
+a user can search YouTube
 
-- All parts seem connected!
-- What features & pages could we live without?
-    - User accounts: Log In, Personal Library
-    - Big database: Keep it simple for now
-- :arrow_right: Simplest MVP :arrow_right: Feed of good videos
+![](cap2.gif)
 
-![](https://i.imgur.com/Z3x66k6.png)
+a user can view and update their profile
 
-### Plan for Build Sprints
-![](https://i.imgur.com/PGvYhUJ.png)
-### Kanban Board
-![](https://i.imgur.com/CPvJibO.png)
+![](cap.gif)
 
-## Implementation/Build
-<!--
-- How did you ensure your code was good?
-Create logical and maintainable code to deliver project outcomes, explaining their choice of approach. (S1)
+a user can add a video to their library
 
-- What interesting technical problems did you have to solve?
-Outline and apply the rationale and use of algorithms, logic and data structures. (K9, S16)
+![](cap5.gif)
 
-- How did you debug issues that arose?
-Apply structured techniques to problem solving to identify and resolve issues and debug basic flaws in code (S7)
--->
-### Roles
-#### QA: Anna
-#### DevOps: Danileo 
-#### UX: Mohamed
-#### Scrum: Barbara
-- How we worked
-    - Set Daily Goals
-    - Underplan: allow time for bugs
-    - Switch between Group, Pair, Individual work
-    - Regular **Stand-ups**
-        - **Coordinate**: make & allocate tickets
-        - **Hand-overs**: merge code in the group
+a user can view their added videos in their library
 
+![](cap4.gif)
 
-### Design Sprint
+a user can like a video
 
-#### Challenges
-- Multiple uncertainties
-    - **Product idea**: Work out what it is, correct scope
-    - **Wireframing**
-        - What is it for? To test functionality, page flow, layout or design? 
-        - What are correct priorities?
-    - **Figma**: 
-        - How it works
-        - How to make it useful to us 
-        - Does it beat paper sketches?
+![](cap6.gif)
 
--  Feel overwhelmed
-    - It's ok to be confused
-        - What exactly is confusing? 
-        - Ask others! 🚀
-    - :construction: 🚨⚠️:ambulance: at 6pm
-        - It's ok to switch off &rarr; we'll fix it tomorrow
-        - It probably looks fine & clear to someone else
-        - How important is this to final product?
+### Future improvements 🕰
 
-#### What we learned
-🤔 How to define the problem our users are facing and design a solution 
+📌 A user should be able to apply tags to a video depending on topic,
+video features etc
 
-🤔  How to use Figma to create prototypes for testing
+📌 A user should be able to see who has liked a video
 
-🤔 How to conduct user research and usability testing
+📌 Users should be able to view each other's profiles
 
-🤔 How to synthesise user feedback and adjust our project scope and goals
+📌 A user should be able to add a video to their library
+with just a YouTube url
 
-🤔 How to realistically scope our MVP/project
+📌 More resuable code/components
 
+### Challenges
 
-### Build Sprint 1
+- Learning new technologies 😓
 
-#### Bugs
-- YouTube API 
-    - Key: request limits, different request costs
-    - Need to hide API key
-        ```javascript
-        //.env.local
-        NEXT_PUBLIC_YOUTUBE_API_KEY=...
+- Length of project 📅
 
-        // in our files
-        const apiKey = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-        ```
-            - Understanding response body of a fetch request
-            - ![](https://i.imgur.com/T5MFD2P.png)
-- SWC
-    - SWC can be used for both compilation and bundling. For compilation, it takes JavaScript / TypeScript files using modern JavaScript features and outputs valid code that is supported by all major browsers.
+- Understanding the scope of the project - what was possible and what not to build
 
-    SWC is 20x faster than Babel on a single thread and 70x faster on four cores.
-    ![](https://i.imgur.com/HncyXWC.png)
+### Sprint planning 🏃‍♀️
 
-Terminal: Disabled SWC as replacement for Babel because of custom Babel configuration .babelrc 
+Our [Kanban](https://github.com/fac22/FACTube/projects/1) board with time estimations and labels based on issue type and priority
 
-#### What we learned
+![](Kanban.jpg)
 
-- [x] How to set up a Supabase database and access it using Next.js functions - getServerSideProps
-- [x] Deployment on Vercel
-- [x] How to query the YouTube API with user generated search term (added to state) and output the data onto the page 📺
-- [x] How to find and install relevant components from NPM e.g. ReactPlayer 🧩
-    ```javascript
-    import ReactPlayer from 'react-player/youtube';
+✅ Daily stand ups
 
-    <ReactPlayer
-        controls="true"
-        url={`https://www.youtube.com/embed/${video.id.videoId}`}
-        />
-    ```
-- [x] How to use Lodash library function to sort videos by publish date 📆
-    ```javascript
-    import { orderBy } from 'lodash';
+✅ Frequent merge and code review
 
-    e.target.value === 'newest' ? (order = 'desc') : (order = 'asc');
+✅ Swapping over work on challenging areas and sharing knowedge
 
-        const orderedVideos = orderBy(
-          copyVideoData,
-          ['snippet.publishTime'],
-          [order]
-        );
-        setVideos(orderedVideos);
-      };
-    ```
-- [x] How to bring in pre-made styled components from Material UI  🎨
-- [x] How to set our environment variables for development and production
+✅ Asking questions - of mentors and in Help and Solutions
 
-### Build Sprint 2
+### Build Sprint 1 🧱
 
-#### Bugs
+- Setting up Next.js with initial Vercel deployment
+- YouTube API search feature 🔎
+- Like button component 💖
 
+### Build Sprint 2 🧱🧱
 
-#### What we learned
+- User login/sign out and authentification
+- CSS with Material UI
+- User can view and update their profile
+- User can view their library and add a video to the library
+- User can like a video which increments the likes counter and is stored against their user id
 
+### Bugs 🐛
 
-## Test
-<!--
-- How did you verify your project worked correctly?
-Identify and create test scenarios which satisfy the project specification (S6)
+Lots of bugs!
 
-- Did writing automated tests catch any bugs?
-Analyse unit testing results and review the outcomes, correcting errors. (S4)
--->
-Cypress
-
-## Deploy
-<!--
-- Where/how did you deploy your application?
-Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)
-
-- What problems did you encounter during deployment?
--->
-Vercel
-
-## Maintain
-<!--
-- Is it easy for someone make changes to the codebase?
-- Could a new person quickly be onboarded to contribute?
-- Establishes a logical thinking approach to areas of work which require valid reasoning and/or justified decision making (B2)
-- Describes how they have maintained a productive, professional and secure working environment throughout the project activity (B3)
--->
+- Fetching from a Supabase database using async functions was tricky to render on the page using React
+- Customising Materials UI was harder than expected
+- Our YouTube API key often maxxed out
+- Vercel sometimes gave us errors in deployment that were not apparent in development
