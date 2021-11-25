@@ -58,7 +58,9 @@ const DbVideos = ({ data }) => {
             >
               {video.description}
             </Typography>
+
             <LikeButton video={video} />
+
           </CardContent>
         </Card>
       ))}

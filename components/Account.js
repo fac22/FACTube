@@ -85,8 +85,7 @@ const Account = ({ session }) => {
   }
 
   const signout = async () => {
-    window.localStorage.clear();
-    window.location.reload();
+    const { error } = await supabase.auth.signOut();
   };
 
   const Input = styled('input')({
@@ -118,17 +117,15 @@ const Account = ({ session }) => {
             src={avatar_url}
             sx={{ mb: 2, width: 56, height: 56 }}
           />
-          <label htmlFor="contained-button-file">
-            <Input
-              accept="image/*"
-              id="contained-button-file"
-              multiple
-              type="file"
-            />
-            <Button variant="contained" component="span">
-              Upload
-            </Button>
-          </label>
+          <TextField
+            InputLabelProps={{ shrink: true }}
+            id="avatar-url"
+            name="avatar"
+            label="Add link to profile picture"
+            type="text"
+            value={avatar_url}
+            onChange={(e) => setAvatarUrl(e.target.value)}
+          />
           <TextField
             id="email-input"
             name="email"
