@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteOutlined from '@mui/icons-material/FavoriteOutlined';
 import IconButton from '@mui/material/IconButton';
@@ -46,6 +46,7 @@ const dbUpdateLikeTotal = async (video_id, new_likes) => {
 
 // If this worked, it would check if a user-video-combination is already in our likes table:
 /*
+ */
 const likeChecker = async (video_id, user_id) => {
   let { data, error } = await supabase
     .from('likes')
@@ -58,19 +59,23 @@ const likeChecker = async (video_id, user_id) => {
     return true;
   }
 };
-*/
 
 const LikeButton = ({ video }) => {
   const user_id = getUserId();
   const video_id = video.id;
 
+  console.log(user_id);
+
+  const [like, setLike] = useState();
+  const [total, setTotal] = useState(video.total_likes);
+
   // If this worked, it would decide to fill/unfill the heart initially
   // const [like, setLike] = useState(async () => {
   //   await likeChecker(video_id, user_id);
   // });
-
-  const [like, setLike] = useState();
-  const [total, setTotal] = useState(video.total_likes);
+  useEffect(() => {
+    likeChecker(video_id, user_id).then((response) => setLike(response));
+  }, []);
 
   const addLike = () => {
     setLike(true);
