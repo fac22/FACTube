@@ -8,7 +8,6 @@ export default function MyVideosPage() {
 
   useEffect(() => {
     setSession(supabase.auth.session());
-    console.log(supabase.auth.session());
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
     });

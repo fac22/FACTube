@@ -30,7 +30,6 @@ const MyVideos = () => {
       }
 
       if (data) {
-        console.log(data);
         setMyVideos(data);
       }
     } catch (error) {
@@ -40,12 +39,10 @@ const MyVideos = () => {
     }
   }
 
-  console.log('the state', myVideos);
-
   return (
     <>
       {myVideos.length === 0 ? (
-        <div>Loading...</div>
+        <div>No video available</div>
       ) : (
         <div>
           {myVideos.map((video) => (
